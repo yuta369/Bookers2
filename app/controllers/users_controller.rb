@@ -1,10 +1,13 @@
 class UsersController < ApplicationController
   def index
+    @users = User.all
+    @current_user = current_user
   end
 
   def show
-    @book = Book.new
     @user = User.find(params[:id])
+    @books = @user.books # 現在のユーザーの投稿のみを取得
+    @book = Book.new
   end
 
   def edit
@@ -13,15 +16,17 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path(@user.id)  
+    if @user.update(user_params)
+      flash[:notice] = "User was successfully updated."
+      redirect_to user_path(@user.id)
+    else
+      render :edit
+    end
   end
-
 
   private
 
   def user_params
     params.require(:user).permit(:name, :profile_image, :introduction)
   end
-  
 end
