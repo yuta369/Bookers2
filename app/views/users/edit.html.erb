@@ -15,7 +15,7 @@
         <label for="inputIntroduction">Introduction</label><br />
         <%= f.text_area :introduction, id:"inputIntroduction", placeholder:"Introduction", class: "form-control" %>
       </div>
-       <button class="btn btn-dark" type="submit" style="margin-bottom: 30px;">Update User</button>
+       <%= f.submit "Update User", class: "btn btn-dark" %>
       <% end %>
     <br />
     </div>
