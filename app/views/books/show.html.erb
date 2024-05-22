@@ -53,10 +53,14 @@
         <tbody>
           <tr>
             <td>
-              <% if @user.profile_image.attached? %>
-                <%= image_tag @user.profile_image, size: "80x80" %>
+              <% if @book.user.profile_image.attached? %>
+                <%= link_to user_path(@book.user) do %>
+                  <%= image_tag @book.user.profile_image, size: "80x80" %>
+                <% end %>
               <% else %>
-                <%= image_tag 'default-image.jpg', size: "80x80" %>
+                <%= link_to user_path(@book.user) do %>
+                  <%= image_tag 'default-image.jpg', size: "80x80" %>
+                <% end %>
               <% end %>
               <%= link_to @user.name, user_path(@user) %>
             </td>
