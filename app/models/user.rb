@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   
   has_one_attached :profile_image
+  
+  def display_image
+    profile_image.variant(resize_to_limit: [100, 100]).processed
+  end
 
   # Deviseモジュール
   devise :database_authenticatable, :registerable,
