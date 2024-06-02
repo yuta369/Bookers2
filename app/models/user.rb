@@ -12,6 +12,7 @@ class User < ApplicationRecord
          authentication_keys: [:name]
          
   has_many :books, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   # バリデーション
   validates :name, presence: true, uniqueness: { case_sensitive: false }, length: { in: 2..20 }

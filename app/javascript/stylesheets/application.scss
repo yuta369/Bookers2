@@ -34,3 +34,29 @@
   max-width: 200px; /* 適切な幅に設定します。必要に応じて調整してください */
   overflow-wrap: break-word; /* 長い単語を折り返す */
 }
+
+.favorite-link {
+  text-decoration: none; /* デフォルトの下線を削除 */
+}
+
+.favorite-link-danger {
+  color: red;
+}
+
+.favorite-link-danger:hover,
+.favorite-link-danger:focus {
+  color: red;
+  text-decoration: underline;
+  text-decoration-color: red; /* 下線の色を赤に設定 */
+}
+
+.favorite-link-primary {
+  color: blue;
+}
+
+.favorite-link-primary:hover,
+.favorite-link-primary:focus {
+  color: blue;
+  text-decoration: underline;
+  text-decoration-color: blue; /* 下線の色を青に設定 */
+}
